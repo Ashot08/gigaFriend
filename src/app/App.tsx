@@ -4,14 +4,20 @@ import { HomePageLazy } from 'pages/HomePage/HomePageLazy';
 import { Suspense, useState } from 'react';
 import { NavigationLazy } from 'components/Navigation/NavigationLazy';
 import './styles/index.scss';
-import { classNames } from 'helpers/ classNames/classNames';
+import { classNames } from 'shared/lib/ classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
+import tom from './tomato-throw.gif';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme();
   return (
     <div className={classNames('app', theme)}>
       <button onClick={toggleTheme}>Toggle Theme</button>
+
+      <div className={classNames('tomato')}>
+        <img src={tom} alt=""/>
+      </div>
+
       <Suspense fallback={<div>LoadingNavigation...</div>}>
         <NavigationLazy />
       </Suspense>

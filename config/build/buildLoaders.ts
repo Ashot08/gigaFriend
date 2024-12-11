@@ -28,8 +28,18 @@ export const buildLoaders = ({isDev} : BuildOptions): webpack.RuleSetRule[] => {
       ],
     };
 
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'url-loader',
+      },
+    ],
+  };
+
   return [
     typescriptLoader,
     scssLoader,
+    fileLoader,
   ];
 }
